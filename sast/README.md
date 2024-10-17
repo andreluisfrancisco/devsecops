@@ -6,6 +6,12 @@ Este projeto demonstra uma vulnerabilidade comum de segurança em Python — a i
 
 Para identificar vulnerabilidades no código, utilizamos a ferramenta [Bandit](https://bandit.readthedocs.io/en/latest/), que analisa códigos em Python em busca de falhas de segurança.
 
-### Instalação da Ferramenta
+### Instalação
 
-Você pode instalar o Bandit usando o pip install bandit
+pip install bandit
+
+### Uso
+
+bandit codigo_vulneravel.py
+
+bandit codigo_nao_vulneravel.py
