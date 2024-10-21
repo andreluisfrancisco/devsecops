@@ -1,5 +1,5 @@
 """
-Este módulo é responsável por realizar varreduras de segurança em aplicações.
+Este módulo é responsável por realizar varreduras de segurança em aplicações
 """
 
 import time
