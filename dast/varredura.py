@@ -1,13 +1,22 @@
+"""
+Este módulo é responsável por realizar varreduras de segurança em aplicações.
+"""
+
 import time
 from zapv2 import ZAPv2
 
-zap = ZAPv2(apikey='api_key', proxies={'http': 'http://127.0.0.1:8080', 'https': 'http://127.0.0.1:8080'})
+proxies = {
+    'http': 'http://127.0.0.1:8080',
+    'https': 'http://127.0.0.1:8080'
+}
 
-target = 'http://google.com'
+zap = ZAPv2(apikey='api_key', proxies=proxies)
 
-print(f"Iniciando spider em {target}")
-zap.spider.scan(target)
-time.sleep(2)
+TARGET = 'http://google.com'
+
+print(f"Iniciando spider em {TARGET}")
+zap.spider.scan(TARGET)
+time.sleep(1)
 
 while int(zap.spider.status()) < 100:
     print(f"Spider em andamento: {zap.spider.status()}%")
@@ -15,7 +24,7 @@ while int(zap.spider.status()) < 100:
 
 print("Spider completo. Iniciando varredura ativa.")
 
-zap.ascan.scan(target)
+zap.ascan.scan(TARGET)
 
 while int(zap.ascan.status()) < 100:
     print(f"Varredura em andamento: {zap.ascan.status()}%")
@@ -23,7 +32,7 @@ while int(zap.ascan.status()) < 100:
 
 print("Varredura completa. Obtendo resultados.")
 
-alerts = zap.core.alerts(baseurl=target)
+alerts = zap.core.alerts(baseurl=TARGET)
 
 for alert in alerts:
     print(f"Alerta: {alert['alert']}")
