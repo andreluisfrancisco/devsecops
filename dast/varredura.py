@@ -3,7 +3,7 @@ from zapv2 import ZAPv2
 
 zap = ZAPv2(apikey='api_key', proxies={'http': 'http://127.0.0.1:8080', 'https': 'http://127.0.0.1:8080'})
 
-target = 'http://appparavarrer.com'
+target = 'http://google.com'
 
 print(f"Iniciando spider em {target}")
 zap.spider.scan(target)
